@@ -31,7 +31,7 @@ describe("Sliders functionality", () => {
 	});
 
 	it("el tag p acompañando al slider de defensa, debe mostrar su valor", () => {
-		const { input } = setupAtkSlider();
+		const { input } = setupDefSlider();
 		fireEvent.change(input, { target: { value: "45" } });
 		expect(screen.getByRole("def-value").textContent).toBe(input.value);
 	});

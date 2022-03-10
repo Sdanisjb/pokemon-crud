@@ -20,7 +20,7 @@ const server = setupServer(
 			ctx.json([
 				{
 					id: 1013,
-					name: pokeName,
+					name: "Pikachu",
 					image:
 						"https://terrigen-cdn-dev.marvel.com/content/prod/1x/017lok_ons_crd_03.jpg",
 					type: "water",
@@ -33,7 +33,7 @@ const server = setupServer(
 				},
 				{
 					id: 1014,
-					name: pokeName,
+					name: "Pikachu",
 					image:
 						"https://terrigen-cdn-dev.marvel.com/content/prod/1x/017lok_ons_crd_03.jpg",
 					type: "water",

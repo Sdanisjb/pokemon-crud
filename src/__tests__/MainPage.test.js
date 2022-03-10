@@ -28,3 +28,9 @@ describe("Pokemon Table Mount", () => {
 		expect(screen.getByRole("pokemon-table")).toBeInTheDocument();
 	});
 });
+
+describe("PokemonEdit Mount", () => {
+	it("debe mostrar un componente con el rol de 'pokemon-edit'", () => {
+		expect(screen.getByRole("pokemon-edit")).toBeInTheDocument();
+	});
+});

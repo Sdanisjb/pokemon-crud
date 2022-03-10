@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export const PokemonEdit = () => {
+export const PokemonEdit = ({ setIsEditing }) => {
 	const [atk, setAtk] = useState(50);
 	const [def, setDef] = useState(50);
 
@@ -14,6 +14,11 @@ export const PokemonEdit = () => {
 		e.preventDefault();
 		const defValue = e.currentTarget.value;
 		setDef(defValue);
+	};
+
+	const handleIsEditing = (e) => {
+		e.preventDefault();
+		setIsEditing(false);
 	};
 
 	return (
@@ -55,7 +60,9 @@ export const PokemonEdit = () => {
 			</form>
 			<div>
 				<button role="save-button">Guardar</button>
-				<button role="cancel-button">Cancelar</button>
+				<button role="cancel-button" onClick={(e) => handleIsEditing(e)}>
+					Cancelar
+				</button>
 			</div>
 		</div>
 	);

@@ -5,13 +5,13 @@ import { PokemonTable } from "./PokemonTable";
 
 export const MainPage = () => {
 	const [query, setQuery] = useState("");
-
+	const [isEditing, setIsEditing] = useState(false);
 	return (
 		<>
 			<h1>Listado de Pokemon</h1>
-			<CrudPanel setQuery={setQuery} />
+			<CrudPanel setQuery={setQuery} setIsEditing={setIsEditing} />
 			<PokemonTable query={query} />
-			<PokemonEdit />
+			{isEditing && <PokemonEdit setIsEditing={setIsEditing} />}
 		</>
 	);
 };

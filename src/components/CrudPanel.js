@@ -1,10 +1,15 @@
 import React from "react";
 
-export const CrudPanel = ({ setQuery }) => {
+export const CrudPanel = ({ setQuery, setIsEditing }) => {
 	const handleQuery = (e) => {
 		e.preventDefault();
 		const query = e.currentTarget.value;
 		setQuery(query);
+	};
+
+	const handleCreation = (e) => {
+		e.preventDefault();
+		setIsEditing(true);
 	};
 
 	return (
@@ -14,7 +19,9 @@ export const CrudPanel = ({ setQuery }) => {
 			</div>
 
 			<div>
-				<button role="create">Crear</button>
+				<button role="create" onClick={(e) => handleCreation(e)}>
+					Crear
+				</button>
 			</div>
 		</div>
 	);

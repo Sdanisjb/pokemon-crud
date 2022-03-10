@@ -38,23 +38,43 @@ export const PokemonEdit = ({ setIsEditing, pokeInfo }) => {
 
 	const handleSave = (e) => {
 		e.preventDefault();
-		fetch("https://pokemon-pichincha.herokuapp.com/pokemons", {
-			method: "POST",
-			body: JSON.stringify({
-				name: name,
-				image: img,
-				attack: atk,
-				defense: def,
-				hp: 100,
-				idAuthor: 1,
-				type: "water",
-			}),
-			headers: {
-				"Content-type": "application/json; charset=UTF-8",
-			},
-		})
-			.then((response) => response.json())
-			.then((json) => console.log(json));
+		if (pokeInfo === 0) {
+			fetch("https://pokemon-pichincha.herokuapp.com/pokemons", {
+				method: "POST",
+				body: JSON.stringify({
+					name: name,
+					image: img,
+					attack: atk,
+					defense: def,
+					hp: 100,
+					idAuthor: 1,
+					type: "water",
+				}),
+				headers: {
+					"Content-type": "application/json; charset=UTF-8",
+				},
+			})
+				.then((response) => response.json())
+				.then((json) => console.log(json));
+		} else {
+			fetch("https://pokemon-pichincha.herokuapp.com/pokemons/" + pokeInfo, {
+				method: "PUT",
+				body: JSON.stringify({
+					name: name,
+					image: img,
+					attack: atk,
+					defense: def,
+					hp: 100,
+					idAuthor: 1,
+					type: "water",
+				}),
+				headers: {
+					"Content-type": "application/json; charset=UTF-8",
+				},
+			})
+				.then((response) => response.json())
+				.then((json) => console.log(json));
+		}
 	};
 
 	useEffect(() => {

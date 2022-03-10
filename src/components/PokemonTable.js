@@ -14,8 +14,17 @@ export const PokemonTable = ({ query, setIsEditing, setPokeInfo }) => {
 
 	const handleEditing = (e, id) => {
 		e.preventDefault();
-		setIsEditing(true);
 		setPokeInfo(id);
+		setIsEditing(true);
+	};
+
+	const handleDeleting = (e, id) => {
+		e.preventDefault();
+		fetch("https://pokemon-pichincha.herokuapp.com/pokemons/" + id, {
+			method: "DELETE",
+		})
+			.then((response) => response.json())
+			.then((json) => console.log(json));
 	};
 
 	return (
@@ -44,7 +53,9 @@ export const PokemonTable = ({ query, setIsEditing, setPokeInfo }) => {
 							<button onClick={(e) => handleEditing(e, pokemon.id)}>
 								Edit
 							</button>
-							<button>Delete</button>
+							<button onClick={(e) => handleDeleting(e, pokemon.id)}>
+								Delete
+							</button>
 						</td>
 					</tr>
 				))}

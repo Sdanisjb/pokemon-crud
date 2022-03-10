@@ -10,10 +10,10 @@ describe("PokemonEdit mount", () => {
 		expect(screen.getByRole("pokemon-form")).toBeInTheDocument();
 	});
 	it("debe mostrar los campos del formulario de edición'", () => {
-		expect(screen.getByLabelText("Nombre")).toBeInTheDocument();
-		expect(screen.getByLabelText("Imagen")).toBeInTheDocument();
-		expect(screen.getByLabelText("Ataque")).toBeInTheDocument();
-		expect(screen.getByLabelText("Defensa")).toBeInTheDocument();
+		expect(screen.getByLabelText("Nombre:")).toBeInTheDocument();
+		expect(screen.getByLabelText("Imagen:")).toBeInTheDocument();
+		expect(screen.getByLabelText("Ataque:")).toBeInTheDocument();
+		expect(screen.getByLabelText("Defensa:")).toBeInTheDocument();
 	});
 	it("debe mostrar los botones de guardar y cerrar", () => {
 		expect(screen.getByRole("save-button")).toBeInTheDocument();

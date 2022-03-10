@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { getPokemon } from "../services";
 
+import "./styles/PokemonEdit.css";
+
 export const PokemonEdit = ({ setIsEditing, pokeInfo }) => {
 	const [atk, setAtk] = useState(50);
 	const [def, setDef] = useState(50);
@@ -75,26 +77,34 @@ export const PokemonEdit = ({ setIsEditing, pokeInfo }) => {
 				.then((response) => response.json())
 				.then((json) => console.log(json));
 		}
+		setIsEditing(false);
 	};
 
 	useEffect(() => {
-		getPokemon(pokeInfo)
-			.then((response) => response.json())
-			.then((data) => {
-				setName(data.name);
-				setImg(data.image);
-				setAtk(data.attack);
-				setDef(data.defense);
-			});
+		if (pokeInfo !== 0) {
+			getPokemon(pokeInfo)
+				.then((response) => response.json())
+				.then((data) => {
+					setName(data.name);
+					setImg(data.image);
+					setAtk(data.attack);
+					setDef(data.defense);
+				});
+		} else {
+			setName("");
+			setImg("");
+			setAtk(0);
+			setDef(0);
+		}
 	}, [pokeInfo]);
 
 	return (
-		<div role="pokemon-edit">
-			<h2>Nuevo Pokemon</h2>
-			<form role="pokemon-form">
+		<div role="pokemon-edit" className="pokemon-edit">
+			<h2>{pokeInfo == 0 ? "Nuevo Pokemon" : "Editar Pokemon"}</h2>
+			<form role="pokemon-form" className="pokemon-form">
 				<div>
-					<div>
-						<label htmlFor="name-input">Nombre</label>
+					<div className="text-input">
+						<label htmlFor="name-input">Nombre:</label>
 						<input
 							id="name-input"
 							type="text"
@@ -102,8 +112,8 @@ export const PokemonEdit = ({ setIsEditing, pokeInfo }) => {
 							onChange={(e) => handleNameChange(e)}
 						/>
 					</div>
-					<div>
-						<label htmlFor="img-input">Imagen</label>
+					<div className="text-input">
+						<label htmlFor="img-input">Imagen:</label>
 						<input
 							id="img-input"
 							type="text"
@@ -113,33 +123,44 @@ export const PokemonEdit = ({ setIsEditing, pokeInfo }) => {
 					</div>
 				</div>
 				<div>
-					<div>
-						<label htmlFor="atk-input">Ataque</label>
+					<div className="slider-input">
+						<label htmlFor="atk-input">Ataque:</label>
+						<p>0</p>
 						<input
 							id="atk-input"
 							type="range"
 							defaultValue={atk}
 							onChange={(e) => handleAtkChange(e)}
 						/>
-						<p role="atk-value">{atk}</p>
+						<p>100</p>
 					</div>
-					<div>
-						<label htmlFor="def-input">Defensa</label>
+					<div className="slider-input">
+						<label htmlFor="def-input">Defensa:</label>
+						<p>0</p>
 						<input
 							id="def-input"
 							type="range"
 							defaultValue={def}
 							onChange={(e) => handleDefChange(e)}
 						/>
-						<p role="def-value">{def}</p>
+						<p role="def-value">100</p>
 					</div>
 				</div>
 			</form>
-			<div>
-				<button role="save-button" onClick={(e) => handleSave(e)}>
-					Guardar
+			<div className="button-container">
+				<button
+					role="save-button"
+					className="edit-button"
+					onClick={(e) => handleSave(e)}
+				>
+					<i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar
 				</button>
-				<button role="cancel-button" onClick={(e) => handleIsEditing(e)}>
+				<button
+					role="cancel-button"
+					className="edit-button"
+					onClick={(e) => handleIsEditing(e)}
+				>
+					<i class="fa fa-times" aria-hidden="true"></i>
 					Cancelar
 				</button>
 			</div>

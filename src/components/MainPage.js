@@ -3,6 +3,8 @@ import { CrudPanel } from "./CrudPanel";
 import { PokemonEdit } from "./PokemonEdit";
 import { PokemonTable } from "./PokemonTable";
 
+import "./styles/MainPage.css";
+
 export const MainPage = () => {
 	const [query, setQuery] = useState("");
 	const [isEditing, setIsEditing] = useState(false);
@@ -10,7 +12,11 @@ export const MainPage = () => {
 	return (
 		<>
 			<h1>Listado de Pokemon</h1>
-			<CrudPanel setQuery={setQuery} setIsEditing={setIsEditing} />
+			<CrudPanel
+				setQuery={setQuery}
+				setIsEditing={setIsEditing}
+				setPokeInfo={setPokeInfo}
+			/>
 			<PokemonTable
 				query={query}
 				setIsEditing={setIsEditing}

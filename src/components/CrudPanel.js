@@ -1,6 +1,8 @@
 import React from "react";
 
-export const CrudPanel = ({ setQuery, setIsEditing }) => {
+import "./styles/CrudPanel.css";
+
+export const CrudPanel = ({ setQuery, setIsEditing, setPokeInfo }) => {
 	const handleQuery = (e) => {
 		e.preventDefault();
 		const query = e.currentTarget.value;
@@ -9,18 +11,30 @@ export const CrudPanel = ({ setQuery, setIsEditing }) => {
 
 	const handleCreation = (e) => {
 		e.preventDefault();
+		setPokeInfo(0);
 		setIsEditing(true);
 	};
 
 	return (
-		<div>
-			<div>
-				<input type="text" role="search" onChange={(e) => handleQuery(e)} />
+		<div className="crud-panel">
+			<div className="search-container">
+				<i class="fa fa-search" aria-hidden="true"></i>
+				<input
+					type="text"
+					role="search"
+					className="search-bar"
+					onChange={(e) => handleQuery(e)}
+					placeholder="Buscar"
+				/>
 			</div>
 
 			<div>
-				<button role="create" onClick={(e) => handleCreation(e)}>
-					Crear
+				<button
+					role="create"
+					className="create-button"
+					onClick={(e) => handleCreation(e)}
+				>
+					<i class="fa fa-plus" aria-hidden="true"></i> Nuevo
 				</button>
 			</div>
 		</div>

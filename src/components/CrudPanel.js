@@ -1,10 +1,16 @@
 import React from "react";
 
-export const CrudPanel = () => {
+export const CrudPanel = ({ setQuery }) => {
+	const handleQuery = (e) => {
+		e.preventDefault();
+		const query = e.currentTarget.value;
+		setQuery(query);
+	};
+
 	return (
 		<div>
 			<div>
-				<input type="text" role="search" />
+				<input type="text" role="search" onChange={(e) => handleQuery(e)} />
 			</div>
 
 			<div>

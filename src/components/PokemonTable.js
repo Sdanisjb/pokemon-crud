@@ -1,6 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { getPokemons } from "../services/index";
 
-export const PokemonTable = () => {
+export const PokemonTable = ({ query }) => {
+	const [pokemons, setPokemons] = useState([]);
+	const [isLoading, setIsLoading] = useState(true);
+
+	useEffect(() => {
+		getPokemons(query)
+			.then((response) => response.json())
+			.then((data) => setPokemons(data))
+			.finally(() => setIsLoading(false));
+	}, [query]);
+
 	return (
 		<table role="pokemon-table">
 			<thead>
@@ -14,13 +25,21 @@ export const PokemonTable = () => {
 			</thead>
 
 			<tbody>
-				<tr>
-					<td>Test</td>
-					<td>Test</td>
-					<td>Test</td>
-					<td>Test</td>
-					<td>Test</td>
-				</tr>
+				{isLoading && <tr>Loading...</tr>}
+				{pokemons.map((pokemon) => (
+					<tr key={pokemon.id}>
+						<td role="pokemon-name">{pokemon.name}</td>
+						<td>
+							<img src={pokemon.image} alt={pokemon.name} />
+						</td>
+						<td>{pokemon.attack}</td>
+						<td>{pokemon.defense}</td>
+						<td>
+							<button>Edit</button>
+							<button>Delete</button>
+						</td>
+					</tr>
+				))}
 			</tbody>
 		</table>
 	);

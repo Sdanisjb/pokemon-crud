@@ -22,3 +22,9 @@ describe("CRUD Panel Mount", () => {
 		expect(screen.getByRole("create")).toBeInTheDocument();
 	});
 });
+
+describe("Pokemon Table Mount", () => {
+	it("debe mostrar un componente con el rol de 'pokemon-table'", () => {
+		expect(screen.getByRole("pokemon-table")).toBeInTheDocument();
+	});
+});

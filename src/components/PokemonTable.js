@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getPokemons } from "../services/index";
 
-export const PokemonTable = ({ query }) => {
+export const PokemonTable = ({ query, setIsEditing, setPokeInfo }) => {
 	const [pokemons, setPokemons] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 
@@ -11,6 +11,12 @@ export const PokemonTable = ({ query }) => {
 			.then((data) => setPokemons(data))
 			.finally(() => setIsLoading(false));
 	}, [query]);
+
+	const handleEditing = (e, id) => {
+		e.preventDefault();
+		setIsEditing(true);
+		setPokeInfo(id);
+	};
 
 	return (
 		<table role="pokemon-table">
@@ -35,7 +41,9 @@ export const PokemonTable = ({ query }) => {
 						<td>{pokemon.attack}</td>
 						<td>{pokemon.defense}</td>
 						<td>
-							<button>Edit</button>
+							<button onClick={(e) => handleEditing(e, pokemon.id)}>
+								Edit
+							</button>
 							<button>Delete</button>
 						</td>
 					</tr>

@@ -4,3 +4,5 @@ const baseUrl =
 		: "";
 
 export const getPokemons = (name) => fetch(baseUrl + "/pokemons/?name=" + name);
+
+export const getPokemon = (id) => fetch(baseUrl + "/pokemons/" + id);

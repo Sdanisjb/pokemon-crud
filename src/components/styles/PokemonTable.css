@@ -1,0 +1,33 @@
+table{
+    width: 80%;
+    border: orchid 1px solid;
+    margin-left: 10vw;
+    background-color: white;
+    font-size: 15pt;
+    text-align: center;
+}
+
+table, th, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.button-cell{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    border: none
+}
+
+.button-cell > button{
+    background-color: white;
+    border: none;
+    color: #6658F6;
+    font-size: 15pt;
+}
+
+img{
+    width:10vw;
+    height: 10vh;
+}

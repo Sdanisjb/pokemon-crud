@@ -1,0 +1,50 @@
+.crud-panel{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+    margin-left: 10vw;
+    margin-bottom: 30px;
+}
+
+.search-bar{
+    width: 20vw;
+    height: 30px;
+    font-size: 15pt;
+}
+
+.create-button{
+    width: 20vw;
+    height: 40px;
+    background-color: #6658F6;
+    border-color: #6658F6;
+    border-radius: 5px;
+    color: white;
+    font-size: 15pt;
+}
+
+.create-button > i {
+    margin-right: 10px;
+}
+
+.search-container i{
+    position: absolute;
+}
+
+.search-container{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.search-container > i {
+    padding: 10px;
+    min-width: 50px;
+    text-align: center;
+}
+
+.search-container >input{
+    padding: 10px;
+    text-align: center;
+    height: 2vh;
+}
+

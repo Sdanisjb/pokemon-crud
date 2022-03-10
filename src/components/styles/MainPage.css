@@ -1,0 +1,10 @@
+body{
+background-color: #fff;
+  background-image: radial-gradient(circle, rgb(195, 193, 193) 20%, transparent 10%), radial-gradient(circle, rgb(195, 193, 193) 20%, transparent 10%);
+  background-size: 10px 10px;
+  background-position: 0 0, 50px 50px;
+}
+
+h1 {
+    margin-left: 10vw;
+}

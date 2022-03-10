@@ -1,0 +1,66 @@
+.pokemon-edit{
+    width: 80%;
+    margin-left: 10vw;
+    border: grey 1px solid;
+    margin-top: 6vh;
+    text-align: center;
+    background-color: white;
+}
+
+.pokemon-form{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.button-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.button-container > button{
+    margin-right: 2vw;
+    margin-bottom: 3vh;
+}
+
+.slider-input{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.slider-input > p, label, input{
+    margin-left: 5px;
+}
+
+
+
+.text-input{
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.text-input > label, input{
+    margin-left: 10px;
+}
+
+.text-input > input{
+    height: 30px;
+}
+
+.edit-button{
+    width: 20vw;
+    height: 30px;
+    background-color: #6658F6;
+    border-color: #6658F6;
+    border-radius: 5px;
+    color: white;
+    font-size: 15pt;
+}
+
+.edit-button > i{
+    margin-right: 10px;
+}
+

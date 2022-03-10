@@ -19,6 +19,6 @@ describe("CRUD Panel Mount", () => {
 	});
 
 	it("debe mostrar un botón con el texto Crear", () => {
-		expect(screen.getByRole("create", { name: "Crear" })).toBeInTheDocument();
+		expect(screen.getByRole("create")).toBeInTheDocument();
 	});
 });

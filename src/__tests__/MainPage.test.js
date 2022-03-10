@@ -12,3 +12,13 @@ describe("Main Page mount", () => {
 		).toBeInTheDocument();
 	});
 });
+
+describe("CRUD Panel Mount", () => {
+	it("debe mostrar un input para realizar búsquedas", () => {
+		expect(screen.getByRole("search")).toBeInTheDocument();
+	});
+
+	it("debe mostrar un botón con el texto Crear", () => {
+		expect(screen.getByRole("create", { name: "Crear" })).toBeInTheDocument();
+	});
+});
